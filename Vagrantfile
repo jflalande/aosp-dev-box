@@ -18,4 +18,14 @@ Vagrant.configure("2") do |config|
     ./auto-gui
     ./auto-login
   SHELL
+
+  config.vm.provision "sony-aosp", type: "shell", inline: <<-SHELL
+    cd /vagrant/provision
+    ./sony-aosp
+  SHELL
+
+  config.vm.provision "sony-build", type: "shell", privileged: "false", inline: <<-SHELL
+    cd /vagrant/provision
+    ./sony-build
+  SHELL
 end

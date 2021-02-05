@@ -1,6 +1,8 @@
 # AOSP Development Box
 
-Vagrant to build and develop Android AOSP
+Vagrant to build and develop Android AOSP.
+
+JFL: Adapted for building SONY XPeria open devices.
 
 ## Set Up
 

@@ -5,8 +5,10 @@ Vagrant.configure("2") do |config|
   config.vm.box = "bento/ubuntu-16.04"
 
   config.vm.provider "virtualbox" do |vb|
-    vb.gui = true
-    # vb.memory = "1024"
+    vb.gui = false
+    vb.name = "AOSPbuilder"
+    vb.cpus = 4
+    vb.memory = 4096
   end
 
   config.vm.provision "shell", inline: <<-SHELL
@@ -24,7 +26,7 @@ Vagrant.configure("2") do |config|
     ./sony-aosp
   SHELL
 
-  config.vm.provision "sony-build", type: "shell", privileged: "false", inline: <<-SHELL
+  config.vm.provision "sony-build", type: "shell", privileged: false, inline: <<-SHELL
     cd /vagrant/provision
     ./sony-build
   SHELL

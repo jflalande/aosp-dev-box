@@ -1,0 +1,20 @@
+BRANCH=android-8.1.0_r52
+mkdir ~/bin
+curl http://commondatastorage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
+chmod a+x ~/bin/repo
+echo "export PATH=~/bin:$PATH" > ~/.bashrc
+source ~/.bashrc
+mkdir ~/android
+cd ~/android
+
+git config --global user.name "JFL"
+git config --global user.email "jfl@example.com"
+repo init -u https://android.googlesource.com/platform/manifest -b $BRANCH
+cd .repo
+git clone https://github.com/sonyxperiadev/local_manifests
+cd local_manifests
+git checkout $BRANCH
+cd ../..
+
+repo sync
+./repo_update.sh

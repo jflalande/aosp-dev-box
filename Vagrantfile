@@ -9,7 +9,7 @@ Vagrant.configure("2") do |config|
     vb.gui = false
     vb.name = "AOSPbuilder"
     vb.cpus = 4
-    vb.memory = 4096
+    vb.memory = 8192
   end
 
   config.vm.provision "shell", inline: <<-SHELL

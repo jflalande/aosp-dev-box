@@ -1,3 +1,6 @@
+# Documentation:
+# https://developer.sony.com/develop/open-devices/guides/aosp-build-instructions/build-aosp-nougat-8-1-oreo-4-4/#tutorial-step-4
+
 BRANCH=android-8.1.0_r52
 mkdir ~/bin
 curl http://commondatastorage.googleapis.com/git-repo-downloads/repo > ~/bin/repo
@@ -18,3 +21,12 @@ cd ../..
 
 repo sync
 ./repo_update.sh
+
+# Solving compile issue:
+# ckati failed with: signal: killed
+# https://stackoverflow.com/questions/35579646/android-source-code-compile-error-try-increasing-heap-size-with-java-option
+echo "export JACK_SERVER_VM_ARGUMENTS=\"-Dfile.encoding=UTF-8 -XX:+TieredCompilation -Xmx7g\"" >> ~/.bashrc
+
+# Compile AOSP (should probably done by hand)
+# source build/envsetup.sh && lunch
+# make -j2

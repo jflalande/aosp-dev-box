@@ -3,3 +3,5 @@ apt-get update
 apt-get -y install openjdk-8-jdk
 
 apt-get -y install bison g++-multilib git gperf libxml2-utils make zlib1g-dev:i386 zip liblz4-tool libncurses5 libssl-dev bc
+
+

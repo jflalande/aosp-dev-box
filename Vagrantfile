@@ -3,6 +3,7 @@
 
 Vagrant.configure("2") do |config|
   config.vm.box = "bento/ubuntu-16.04"
+  config.disksize.size = '300GB'
 
   config.vm.provider "virtualbox" do |vb|
     vb.gui = false
